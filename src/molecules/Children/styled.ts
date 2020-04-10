@@ -9,9 +9,8 @@ export const Wrapper = styled.ul`
 export const ChildrenButton = styled(Button)`
   margin: 8px 0;
   background-color: ${colors.primaryBackground};
-  padding: 8px;
-  border-radius: 8px;
-  border: 2px solid ${colors.secondary};
+  padding: 8px 16px;
+  border-radius: 2px;
   display: flex;
   flex-direction: column;
   align-items: center;

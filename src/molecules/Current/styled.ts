@@ -4,8 +4,7 @@ import { colors, shadows } from "../../styles";
 export const CurrentWrapper = styled.div`
   background-color: ${colors.primaryBackground};
   padding: 8px;
-  border-radius: 12px;
-  border: 2px solid ${colors.secondary};
+  border-radius: 4px;
   flex: 1 1;
   display: flex;
   flex-direction: column;
