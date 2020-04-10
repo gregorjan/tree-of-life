@@ -1,14 +1,13 @@
 import { createGlobalStyle } from "styled-components";
-
-//TODO use variables for colors
+import { colors } from "./colors";
 
 export const GlobalStyle = createGlobalStyle`
     body {
         
         margin: 0;
         min-height: 100vh;
-        color: white;
-        background-color: black;
+        color: ${colors.primary};
+        background-color: ${colors.background};
         font-family: sans-serif;
         * {
             box-sizing: border-box;

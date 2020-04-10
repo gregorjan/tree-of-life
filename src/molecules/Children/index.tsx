@@ -1,4 +1,5 @@
 import * as React from "react";
+import { Wrapper, ChildrenButton } from "./styled";
 
 interface Child {
   _id: string;
@@ -12,12 +13,14 @@ interface Props {
 
 export const Children: React.FC<Props> = ({ children, setId }) => {
   return children ? (
-    <ul>
+    <Wrapper>
       {children.map((child: any) => (
         <li key={child._id}>
-          <button onClick={() => setId(child._id)}>{child.name}</button>
+          <ChildrenButton onClick={() => setId(child._id)}>
+            {child.name}
+          </ChildrenButton>
         </li>
       ))}
-    </ul>
+    </Wrapper>
   ) : null;
 };

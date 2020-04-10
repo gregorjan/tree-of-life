@@ -1,19 +1,21 @@
 import * as React from "react";
 import { useApi } from "../../hooks";
-import {
-  ParentWrapper,
-  ParentLine,
-  ParentButton,
-  TimelinePoint,
-} from "./styled";
+import { ParentWrapper, ParentButton, TimelinePoint } from "./styled";
 
 interface ParentProps {
   setId: (arg0: string) => void;
   addParent: (arg0: string) => void;
   parent: string;
   index: number;
+  length: number;
 }
-const Parent: React.FC<ParentProps> = ({ addParent, setId, parent, index }) => {
+const Parent: React.FC<ParentProps> = ({
+  addParent,
+  setId,
+  parent,
+  index,
+  length,
+}) => {
   const { data } = useApi(parent, 1);
   const name = data?.root?.name;
 
@@ -25,7 +27,7 @@ const Parent: React.FC<ParentProps> = ({ addParent, setId, parent, index }) => {
   }, [data]);
 
   return parent ? (
-    <ParentButton index={index} onClick={() => setId(parent)}>
+    <ParentButton index={index} length={length} onClick={() => setId(parent)}>
       <TimelinePoint />
       {name ? name : "parent"}
     </ParentButton>
@@ -48,7 +50,7 @@ export const Parents: React.FC<Props> = ({ parent, setId }) => {
       return prevParents;
     });
   };
-  console.log(parents);
+
   return (
     <ParentWrapper>
       {parents
@@ -59,10 +61,10 @@ export const Parents: React.FC<Props> = ({ parent, setId }) => {
             setId={setId}
             parent={parent}
             index={i}
+            length={parents.length}
             addParent={addParent}
           />
         ))}
-      <ParentLine />
     </ParentWrapper>
   );
 };
